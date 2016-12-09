@@ -1,28 +1,30 @@
-<div class="col-md-6">
+<h1>Register a Regifter</h1>
+<h3>Only you can prevent regifting.</h3>
+<div class="col-md-6 text-center">
   <%= form_for @regifter do |f| %>
     <div class="form-group text-left">
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class: "form-control" %>
     </div>
     <div class="form-group text-left">
       <%= f.label :gift %>
-      <%= f.text_field :gift %>
+      <%= f.text_field :gift, class: "form-control" %>
     </div>
     <div class="form-group text-left">
       <%= f.label :avatar %>
-      <%= f.text_field :avatar %>
+      <%= f.text_field :avatar, class: "form-control" %>
     </div>
     <div class="form-group text-left">
       <%= f.label :description %>
-      <%= f.text_field :description %>
+      <%= f.text_field :description, class: "form-control" %>
     </div>
     <div class="form-group text-left">
       <%= f.label :lat %>
-      <%= f.text_field :lat %>
+      <%= f.text_field :lat, class: "form-control" %>
     </div>
     <div class="form-group text-left">
       <%= f.label :long %>
-      <%= f.text_field :long %>
+      <%= f.text_field :long, class: "form-control" %>
     </div>
     <div class="btn-group">
       <%= f.submit "Register", class: "btn btn-primary" %>
