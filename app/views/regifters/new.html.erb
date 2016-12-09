@@ -1,0 +1,31 @@
+<div class="col-md-6">
+  <%= form_for @regifter do |f| %>
+    <div class="form-group text-left">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="form-group text-left">
+      <%= f.label :gift %>
+      <%= f.text_field :gift %>
+    </div>
+    <div class="form-group text-left">
+      <%= f.label :avatar %>
+      <%= f.text_field :avatar %>
+    </div>
+    <div class="form-group text-left">
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+    <div class="form-group text-left">
+      <%= f.label :lat %>
+      <%= f.text_field :lat %>
+    </div>
+    <div class="form-group text-left">
+      <%= f.label :long %>
+      <%= f.text_field :long %>
+    </div>
+    <div class="btn-group">
+      <%= f.submit "Register", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
