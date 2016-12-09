@@ -1,0 +1,64 @@
+<div class="all-stations">
+<div class="jumbotron">
+  <div class="container">
+  <h1 class="page-header">All Regifters</h1>
+  
+  <div id="map"></div></br></br>
+  <% @regifters.each do |regifter| %>
+    <div  class="panel panel-default">
+      <div class="panel-body">
+        <h3><%= regifter.name %></h3>
+        <div class="col-md-6">
+          <%= image_tag regifter.avatar %>
+        </div>
+        <div class="col-md-6">
+          <h4>Gift: <%= regifter.gift %> </h4>
+          <p>Description: <%= regifter.description %> </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to "Create", new_regifter_path, class: "btn btn-default"%>
+</div>
+</div>
+</div>
+
+<div id="map" style="height:100%";></div>
+<script type="text/javascript">
+
+ var map;
+ var markers = [];
+
+ function initMap() {
+   map = new google.maps.Map(document.getElementById('map'), {
+     center: {lat: 39.7392, lng: -104.99903},
+     zoom: 13
+   });
+
+   var largeInfoWindow = new google.maps.InfoWindow();
+   var bounds = new google.maps.LatLngBounds();
+
+   function addMarker(lat, lng) {
+     var marker = new google.maps.Marker({
+       position: new google.maps.LatLng(lat, lng),
+       map: map,
+       name: name,
+       animation: google.maps.Animation.DROP
+     });
+
+     markers.push(marker);
+     bounds.extend(marker.position);
+     map.fitBounds(bounds);
+
+   }
+
+   <% @regifters.each do |regifter| %>
+     addMarker(<%= regifter.lat %>, <%= regifter.long %>);
+   <% end %>
+
+ }
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBY5e6y9BV-anVv_aKGrlgMd_uxwi71PSQ&v=3&callback=initMap"></script>
